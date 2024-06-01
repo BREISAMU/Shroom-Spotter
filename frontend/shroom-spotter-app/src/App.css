@@ -36,3 +36,114 @@
     transform: rotate(360deg);
   }
 }
+
+.button-74-unclicked {
+  background-color: #C1E1C1;
+  border: 2px solid #355E3B;
+  border-radius: 30px;
+  box-shadow: #355E3B 4px 4px 0 0;
+  color: #355E3B;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  outline: none;
+  margin-right: 10px;
+}
+
+.button-74-unclicked:active {
+  box-shadow: #355E3B 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74-unclicked {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+
+
+.button-74-clicked {
+  background-color: #355E3B;
+  border: 2px solid #C1E1C1;
+  border-radius: 30px;
+  box-shadow: #C1E1C1 4px 4px 0 0;
+  color: #C1E1C1;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  outline: none;
+  margin-right: 10px;
+}
+
+.button-74-clicked:active {
+  box-shadow: #C1E1C1 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74-clicked {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+.question-prompt {
+  color: #355E3B;
+  margin-bottom: 15px;
+  margin-top: 60px;
+  text-decoration: underline;
+}
+
+.question-input {
+  border: 2px solid transparent;
+  width: 15em;
+  height: 2.5em;
+  padding-left: 0.8em;
+  outline: none;
+  overflow: hidden;
+  background-color: #C1E1C1;
+  border-radius: 10px;
+  border-color: #355E3B;
+  transition: all 0.5s;
+}
+
+.input:hover,
+.input:focus {
+  border: 2px solid #4A9DEC;
+  box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+  background-color: white;
+}
+
+.submit-fancy {
+  color: #C1E1C1;
+  border: 2px solid transparent;
+  width: 9em;
+  height: 4em;
+  padding-left: 0.8em;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  outline: none;
+  overflow: hidden;
+  background-color: #355E3B;
+  border-radius: 10px;
+  border-color: #C1E1C1;
+  transition: all 0.5s;
+}

@@ -1,8 +1,8 @@
 from database import Base
-from sqlalchemy import Column, Integer, String, Boolean, Float
+from sqlalchemy import Column, Integer, String, Boolean, Float, ARRAY
 
-class Transaction(Base):
-    __tablename__ = 'transactions'
+class Identification(Base):
+    __tablename__ = 'identifications'
     id=Column(Integer, primary_key=True, index=True)
     amount=Column(Float)
     category=Column(String)

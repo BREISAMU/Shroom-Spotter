@@ -20,14 +20,14 @@ app.add_middleware(
     allow_headers=['*']
     )
 
-class TransactionBase(BaseModel):
+class IdentificationBase(BaseModel):
     amount: float
     category: str
     description: str
     is_income: bool
     date: str
 
-class TransactionModel(TransactionBase):
+class IdentificationModel(IdentificationBase):
     id: int
     class Config:
         from_attributes = True
@@ -43,17 +43,18 @@ db_dependency = Annotated[Session, Depends(get_db)]
 
 models.Base.metadata.create_all(bind=engine)
 
-@app.post("/transactions/", response_model=TransactionModel)
-async def create_transaction(transaction: TransactionBase, db: db_dependency):
-    db_transaction = models.Transaction(**transaction.dict())
-    db.add(db_transaction)
+@app.post("/identifications/", response_model=IdentificationModel)
+async def create_identification(identification: IdentificationBase, db: db_dependency):
+    db_identification = models.Identification(**identification.dict())
+    db_identification.description = db_identification.category + ":  " + "This is the description, amount: " + str(db_identification.amount)
+    db.add(db_identification)
     db.commit()
-    db.refresh(db_transaction)
-    return db_transaction
+    db.refresh(db_identification)
+    return db_identification
 
-@app.get("/transactions/", response_model=List[TransactionModel])
-async def read_transactions(db: db_dependency, skip: int = 0, limit: int = 100):
-    transactions = db.query(models.Transaction).offset(skip).limit(limit).all()
-    return transactions
+@app.get("/identifications/", response_model=List[IdentificationModel])
+async def read_identifications(db: db_dependency, skip: int = 0, limit: int = 100):
+    identifications = db.query(models.Identification).offset(skip).limit(limit).all()
+    return identifications
 
 
