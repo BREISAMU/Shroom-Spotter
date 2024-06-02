@@ -43,9 +43,57 @@ def insertion_sort(A):
         A[i + 1] = key
     return A
 
-# data = predict(tst_shroom)
-# sorted_data = insertion_sort(data)
+data = predict(tst_shroom)
+sorted_data = insertion_sort(data)
+
+print(sorted_data[0])
 
 # for i in range(10):
 #     print(sorted_data[i])
+
+def get_similarity_score(cap_diameter: float,
+    stem_height: float,
+    stem_width: float,
+    bruise_or_bleed: bool,
+    has_ring: bool,
+    cap_shape: list,
+    cap_surface: list,
+    cap_color: list,
+    gill_attachment: list,
+    gill_spacing: list,
+    gill_color: list,
+    stem_root: list,
+    stem_surface: list,
+    stem_color: list,
+    veil_color: list,
+    ring_type: list,
+    spore_print_color: list,
+    habitat: list,
+    season: list,
+    veil_type: list,
+    similarity_score: float,
+    most_similar: str):
+
+    inp_shroom = {
+              'cap-diameter': '[1.25]', 
+              'cap-shape': '[x, f, s]', 
+              'Cap-surface': '[s]', 
+              'cap-color': '[y]', 
+              'does-bruise-or-bleed': '[f]', 
+              'gill-attachment': '[f]', 
+              'gill-spacing': '[f]', 
+              'gill-color': '[f]', 
+              'stem-height': '[4]', 
+              'stem-width': '[7]', 
+              'stem-root': '', 
+              'stem-surface': '', 
+              'stem-color': '[y]', 
+              'veil-type': '', 
+              'veil-color': '', 
+              'has-ring': '[f]', 
+              'ring-type': '[f]', 
+              'Spore-print-color': '', 
+              'habitat': '[d]', 
+              'season': '[u, a]'}
+
 

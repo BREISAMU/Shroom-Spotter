@@ -18,6 +18,7 @@ import {
   spore_print_color_dict,
   habitat_dict,
   season_dict,
+  veil_type_dict,
 } from "../helpers/shape_dicts";
 
 const InputForm = () => {
@@ -35,17 +36,15 @@ const InputForm = () => {
   let spore_print_colors = new Set();
   let habitats = new Set();
   let seasons = new Set();
+  let veil_types = new Set();
 
   const [identifications, setIdentifications] = useState([]);
   const [formData, setFormData] = useState({
-    amount: "",
     cap_diameter: "",
     stem_height: "",
     stem_width: "",
-    category: "",
-    description: "",
-    is_income: false,
-    date: "",
+    bruise_or_bleed: false,
+    has_ring: false,
     cap_shape: [],
     cap_surface: [],
     cap_color: [],
@@ -60,6 +59,7 @@ const InputForm = () => {
     spore_print_color: [],
     habitat: [],
     season: [],
+    veil_type: [],
   });
 
   const fetchIdentifications = async () => {
@@ -98,6 +98,7 @@ const InputForm = () => {
       const spore_print_color_arr = arrayOf(spore_print_colors);
       const habitat_arr = arrayOf(habitats);
       const season_arr = arrayOf(seasons);
+      const veil_type_arr = arrayOf(veil_types);
       setFormData({
         ...formData,
         cap_shape: cap_shape_arr,
@@ -114,6 +115,7 @@ const InputForm = () => {
         spore_print_color: spore_print_color_arr,
         habitat: habitat_arr,
         season: season_arr,
+        veil_type: veil_type_arr,
       });
       event.preventDefault();
       await api.post("/identifications/", {
@@ -132,20 +134,18 @@ const InputForm = () => {
         spore_print_color: spore_print_color_arr,
         habitat: habitat_arr,
         season: season_arr,
+        veil_type: veil_type_arr,
       });
       fetchIdentifications();
 
       // emptyArrays();
 
       setFormData({
-        amount: "",
         cap_diameter: "",
         stem_height: "",
         stem_width: "",
-        category: "",
-        description: "",
-        is_income: false,
-        date: "",
+        bruise_or_bleed: false,
+        has_ring: false,
         cap_shape: [],
         cap_surface: [],
         cap_color: [],
@@ -160,6 +160,7 @@ const InputForm = () => {
         spore_print_color: [],
         habitat: [],
         season: [],
+        veil_type: [],
       });
     } catch (AxiosError) {
       alert("Please fill out all fields with proper input!");
@@ -180,6 +181,7 @@ const InputForm = () => {
     spore_print_colors = [];
     habitats = [];
     seasons = [];
+    veil_types = [];
   };
 
   return (
@@ -194,27 +196,12 @@ const InputForm = () => {
 
       <div className="container">
         <form onSubmit={handleFormSubmit}>
-          <div className="mt-3">
-            <label htmlFor="amount" className="form-label">
-              Amount
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="amount"
-              name="amount"
-              onChange={handleInputChange}
-              value={formData.amount}
-            />
-          </div>
 
           <div className="mt-3">
-            <label htmlFor="stem_height" className="form-label">
-              Stem Height
-            </label>
+            <h3 className="question-prompt">Stem Height</h3>
             <input
               type="text"
-              className="form-control"
+              className="question-input"
               id="stem_height"
               name="stem_height"
               onChange={handleInputChange}
@@ -223,12 +210,10 @@ const InputForm = () => {
           </div>
 
           <div className="mt-3">
-            <label htmlFor="stem_width" className="form-label">
-              Stem Width
-            </label>
+            <h3 className="question-prompt">Stem Width</h3>
             <input
               type="text"
-              className="form-control"
+              className="question-input"
               id="stem_width"
               name="stem_width"
               onChange={handleInputChange}
@@ -237,12 +222,10 @@ const InputForm = () => {
           </div>
 
           <div className="mt-3">
-            <label htmlFor="cap_diameter" className="form-label">
-              Cap Diameter
-            </label>
+            <h3 className="question-prompt">Cap Diameter</h3>
             <input
               type="text"
-              className="form-control"
+              className="question-input"
               id="cap_diameter"
               name="cap_diameter"
               onChange={handleInputChange}
@@ -250,57 +233,40 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3">
-            <label htmlFor="category" className="form-label">
-              Category
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="category"
-              name="category"
-              onChange={handleInputChange}
-              value={formData.category}
-            />
+          <div className="horizontal-container">
+            <h3 className="question-prompt">Mushroom bruises or bleeds upon touch</h3>
+            <div className="checkbox-wrapper-23" style={{ "--size": "40px" }}>
+              <input
+                type="checkbox"
+                id="bruise_or_bleed"
+                name="bruise_or_bleed"
+                onChange={handleInputChange}
+                value={formData.bruise_or_bleed}
+              />
+              <label htmlFor="bruise_or_bleed">
+                <svg viewBox="0 0 50 50">
+                  <path d="M5 30 L20 45 L45 5"></path>
+                </svg>
+              </label>
+            </div>
           </div>
 
-          <div className="mt-3">
-            <label htmlFor="description" className="form-label">
-              Description
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="description"
-              name="description"
-              onChange={handleInputChange}
-              value={formData.description}
-            />
-          </div>
-
-          <div className="mt-3">
-            <label htmlFor="is_income" className="form-label">
-              Income?
-            </label>
-            <input
-              type="checkbox"
-              id="is_income"
-              name="is_income"
-              onChange={handleInputChange}
-              value={formData.is_income}
-            />
-          </div>
-
-          <div className="mt-3">
-            <h3 className="question-prompt">Date</h3>
-            <input
-              type="text"
-              className="question-input"
-              id="date"
-              name="date"
-              onChange={handleInputChange}
-              value={formData.date}
-            />
+          <div className="horizontal-container">
+            <h3 className="question-prompt">Mushroom Has Ring</h3>
+            <div className="checkbox-wrapper-23" style={{ "--size": "40px" }}>
+              <input
+                type="checkbox"
+                id="has_ring"
+                name="has_ring"
+                onChange={handleInputChange}
+                value={formData.has_ring}
+              />
+              <label htmlFor="has_ring">
+                <svg viewBox="0 0 50 50">
+                  <path d="M5 30 L20 45 L45 5"></path>
+                </svg>
+              </label>
+            </div>
           </div>
 
           <div className="mt-3 mb-5">
@@ -317,7 +283,7 @@ const InputForm = () => {
               exportTo={cap_surfaces}
               nameKeys={arrayOf(cap_surface_dict.keys())}
               nameDict={cap_surface_dict}
-              prompt={"Mushroom Cap Shape"}
+              prompt={"Mushroom Cap Surface"}
             />
           </div>
 
@@ -326,7 +292,7 @@ const InputForm = () => {
               exportTo={cap_colors}
               nameKeys={arrayOf(cap_color_dict.keys())}
               nameDict={cap_color_dict}
-              prompt={"Mushroom Cap Shape"}
+              prompt={"Mushroom Cap Color"}
             />
           </div>
 
@@ -335,7 +301,7 @@ const InputForm = () => {
               exportTo={gill_attachments}
               nameKeys={arrayOf(gill_attachment_dict.keys())}
               nameDict={gill_attachment_dict}
-              prompt={"Mushroom Cap Shape"}
+              prompt={"Gill Attachment Style"}
             />
           </div>
 
@@ -344,7 +310,7 @@ const InputForm = () => {
               exportTo={gill_spacings}
               nameKeys={arrayOf(gill_spacing_dict.keys())}
               nameDict={gill_spacing_dict}
-              prompt={"Mushroom Cap Shape"}
+              prompt={"Gill Spacing Style"}
             />
           </div>
 
@@ -353,7 +319,7 @@ const InputForm = () => {
               exportTo={gill_colors}
               nameKeys={arrayOf(gill_color_dict.keys())}
               nameDict={gill_color_dict}
-              prompt={"Mushroom Cap Shape"}
+              prompt={"Gill Color"}
             />
           </div>
 
@@ -362,7 +328,7 @@ const InputForm = () => {
               exportTo={stem_roots}
               nameKeys={arrayOf(stem_root_dict.keys())}
               nameDict={stem_root_dict}
-              prompt={"Mushroom Cap Shape"}
+              prompt={"Stem Root Style"}
             />
           </div>
 
@@ -371,7 +337,7 @@ const InputForm = () => {
               exportTo={stem_surfaces}
               nameKeys={arrayOf(stem_surface_dict.keys())}
               nameDict={stem_surface_dict}
-              prompt={"Mushroom Cap Shape"}
+              prompt={"Stem Surface"}
             />
           </div>
 
@@ -380,7 +346,16 @@ const InputForm = () => {
               exportTo={stem_colors}
               nameKeys={arrayOf(stem_color_dict.keys())}
               nameDict={stem_color_dict}
-              prompt={"Mushroom Cap Shape"}
+              prompt={"Stem Color"}
+            />
+          </div>
+
+          <div className="mt-3 mb-5">
+            <ButtonList
+              exportTo={veil_types}
+              nameKeys={arrayOf(veil_type_dict.keys())}
+              nameDict={veil_type_dict}
+              prompt={"Veil Type"}
             />
           </div>
 
@@ -389,7 +364,7 @@ const InputForm = () => {
               exportTo={veil_colors}
               nameKeys={arrayOf(veil_color_dict.keys())}
               nameDict={veil_color_dict}
-              prompt={"Mushroom Cap Shape"}
+              prompt={"Veil Color"}
             />
           </div>
 
@@ -398,7 +373,7 @@ const InputForm = () => {
               exportTo={ring_types}
               nameKeys={arrayOf(ring_type_dict.keys())}
               nameDict={ring_type_dict}
-              prompt={"Mushroom Cap Shape"}
+              prompt={"Ring Type"}
             />
           </div>
 
@@ -407,7 +382,7 @@ const InputForm = () => {
               exportTo={spore_print_colors}
               nameKeys={arrayOf(spore_print_color_dict.keys())}
               nameDict={spore_print_color_dict}
-              prompt={"Mushroom Cap Shape"}
+              prompt={"Spore Print Color"}
             />
           </div>
 
@@ -416,7 +391,7 @@ const InputForm = () => {
               exportTo={habitats}
               nameKeys={arrayOf(habitat_dict.keys())}
               nameDict={habitat_dict}
-              prompt={"Mushroom Cap Shape"}
+              prompt={"Habitat of Mushroom"}
             />
           </div>
 
@@ -425,7 +400,7 @@ const InputForm = () => {
               exportTo={seasons}
               nameKeys={arrayOf(season_dict.keys())}
               nameDict={season_dict}
-              prompt={"Mushroom Cap Shape"}
+              prompt={"Current Season"}
             />
           </div>
 
@@ -436,11 +411,6 @@ const InputForm = () => {
         <table className="table table-striped table-bordered table-hover">
           <thead>
             <tr>
-              <th>Amount</th>
-              <th>Category</th>
-              <th>Description</th>
-              <th>Income?</th>
-              <th>Date</th>
               <th>Cap shape</th>
               <th>Cap surface</th>
             </tr>
@@ -448,11 +418,6 @@ const InputForm = () => {
           <tbody>
             {identifications.map((identification) => (
               <tr key={identification.id}>
-                <td>{identification.amount}</td>
-                <td>{identification.category}</td>
-                <td>{identification.description}</td>
-                <td>{identification.is_income ? "Yes" : "No"}</td>
-                <td>{identification.date}</td>
                 <td>{identification.cap_shape}</td>
                 <td>{identification.cap_surface}</td>
               </tr>

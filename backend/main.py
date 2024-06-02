@@ -21,14 +21,11 @@ app.add_middleware(
     )
 
 class IdentificationBase(BaseModel):
-    amount: float
     cap_diameter: float
     stem_height: float
     stem_width: float
-    category: str
-    description: str
-    is_income: bool
-    date: str
+    bruise_or_bleed: bool
+    has_ring: bool
     cap_shape: list
     cap_surface: list
     cap_color: list
@@ -43,6 +40,9 @@ class IdentificationBase(BaseModel):
     spore_print_color: list
     habitat: list
     season: list
+    veil_type: list
+    similarity_score: float
+    most_similar: str
     
 
 class IdentificationModel(IdentificationBase):
@@ -64,7 +64,7 @@ models.Base.metadata.create_all(bind=engine)
 @app.post("/identifications/", response_model=IdentificationModel)
 async def create_identification(identification: IdentificationBase, db: db_dependency):
     db_identification = models.Identification(**identification.dict())
-    db_identification.description = db_identification.category + ":  " + "This is the description, amount: " + str(db_identification.amount)
+    db_identification.similarity_score = 
     db.add(db_identification)
     db.commit()
     db.refresh(db_identification)

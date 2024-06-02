@@ -114,10 +114,10 @@ export let stem_color_dict = new Map([
   ["f", "None"]
 ]);
 
-// export let veil_type_dict = new Map([
-//   ["p", "Partial"],
-//   ["u", "Universal"]
-// ]);
+export let veil_type_dict = new Map([
+  ["p", "Partial"],
+  ["u", "Universal"]
+]);
 
 export let veil_color_dict = new Map([
   ["n", "Brown"],
