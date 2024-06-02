@@ -19,6 +19,8 @@ import {
   habitat_dict,
   season_dict,
   veil_type_dict,
+  similarity_score,
+  most_similar,
 } from "../helpers/shape_dicts";
 
 const InputForm = () => {
@@ -60,6 +62,8 @@ const InputForm = () => {
     habitat: [],
     season: [],
     veil_type: [],
+    similarity_score: 0,
+    most_similar: "ERROR",
   });
 
   const fetchIdentifications = async () => {
@@ -116,6 +120,8 @@ const InputForm = () => {
         habitat: habitat_arr,
         season: season_arr,
         veil_type: veil_type_arr,
+        similarity_score: 0,
+        most_similar: "ERROR",
       });
       event.preventDefault();
       await api.post("/identifications/", {
@@ -135,6 +141,8 @@ const InputForm = () => {
         habitat: habitat_arr,
         season: season_arr,
         veil_type: veil_type_arr,
+        similarity_score: 0,
+        most_similar: "ERROR",
       });
       fetchIdentifications();
 
@@ -161,6 +169,8 @@ const InputForm = () => {
         habitat: [],
         season: [],
         veil_type: [],
+        similarity_score: 0,
+        most_similar: "ERROR",
       });
     } catch (AxiosError) {
       alert("Please fill out all fields with proper input!");

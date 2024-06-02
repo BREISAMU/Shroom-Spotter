@@ -20,8 +20,14 @@ def range_analysis(datapoint, min, max):
         return 0.0
 
 def num_analysis(shroom, category, datapoint):
-    shroom_datapoint = eval(shroom[category])
-    input_datapoint = eval(datapoint[category])[0]
+    shroom_datapoint = shroom[category]
+    if(type(shroom[category]) == str):
+        shroom_datapoint = eval(shroom[category])
+
+    input_datapoint = datapoint[category][0]
+    if(type(datapoint[category]) == str):
+        input_datapoint = eval(datapoint[category])[0]
+
     if(len(shroom_datapoint) == 1):
         avg = shroom_datapoint[0]
         return avg_analysis(input_datapoint, avg)

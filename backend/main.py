@@ -5,6 +5,7 @@ from pydantic import BaseModel
 from database import SessionLocal, engine
 import models
 from fastapi.middleware.cors import CORSMiddleware
+from process import get_similarity_info
 
 app = FastAPI()
 
@@ -64,7 +65,9 @@ models.Base.metadata.create_all(bind=engine)
 @app.post("/identifications/", response_model=IdentificationModel)
 async def create_identification(identification: IdentificationBase, db: db_dependency):
     db_identification = models.Identification(**identification.dict())
-    db_identification.similarity_score = 
+    similarity_scores = get_similarity_info(db_identification.cap_diameter, db_identification.stem_height, db_identification.stem_width, db_identification.bruise_or_bleed, db_identification.has_ring, db_identification.cap_shape, db_identification.cap_surface, db_identification.cap_color, db_identification.gill_attachment, db_identification.gill_spacing, db_identification.gill_color, db_identification.stem_root, db_identification.stem_surface, db_identification.stem_color, db_identification.veil_color, db_identification.ring_type, db_identification.spore_print_color, db_identification.habitat, db_identification.season, db_identification.veil_type)
+    db_identification.similarity_score = float(similarity_scores['Similarity'])
+    db_identification.most_similar = str(similarity_scores['Name'])
     db.add(db_identification)
     db.commit()
     db.refresh(db_identification)

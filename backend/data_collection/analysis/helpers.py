@@ -1,4 +1,7 @@
 def string_to_list(string):
-    string = string.strip("[]")
-    elements = string.split(", ")
-    return elements
+    if(type(string) == str):
+        string = string.strip("[]")
+        elements = string.split(", ")
+        return elements
+    else:
+        return string
