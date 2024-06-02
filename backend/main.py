@@ -22,10 +22,28 @@ app.add_middleware(
 
 class IdentificationBase(BaseModel):
     amount: float
+    cap_diameter: float
+    stem_height: float
+    stem_width: float
     category: str
     description: str
     is_income: bool
     date: str
+    cap_shape: list
+    cap_surface: list
+    cap_color: list
+    gill_attachment: list
+    gill_spacing: list
+    gill_color: list
+    stem_root: list
+    stem_surface: list
+    stem_color: list
+    veil_color: list
+    ring_type: list
+    spore_print_color: list
+    habitat: list
+    season: list
+    
 
 class IdentificationModel(IdentificationBase):
     id: int

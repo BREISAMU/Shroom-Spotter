@@ -23,7 +23,7 @@ export default function ButtonList({ exportTo, nameKeys, nameDict, prompt }) {
     } else {
       exportTo.delete(nameKeys[i]);
     }
-    console.log(clicked);
+    console.log(exportTo);
   };
 
   let buttons = nameKeys.map((name, i, buttons_ref) => (
