@@ -3,6 +3,8 @@ import ButtonList from "../components/ButtonList";
 import api from "../api";
 import { AxiosError } from "axios";
 import arrayOf from "../helpers/arrayOf";
+import { useNavigate } from "react-router-dom";
+
 import {
   cap_shapes_dict,
   cap_surface_dict,
@@ -24,6 +26,8 @@ import {
 } from "../helpers/shape_dicts";
 
 const InputForm = () => {
+  const navigate = useNavigate();
+
   let cap_shapes = new Set();
   let cap_surfaces = new Set();
   let cap_colors = new Set();

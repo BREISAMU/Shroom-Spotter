@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import InputForm from './pages/InputForm'
+import ResultsPage from './pages/ResultsPage'
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<InputForm />} />
-          <Route path="/chu" element={<h1>CHU</h1>}></Route>
+          <Route path="/score" element={<ResultsPage/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
