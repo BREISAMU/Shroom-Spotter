@@ -148,7 +148,9 @@ const InputForm = () => {
         similarity_score: 0,
         most_similar: "ERROR",
       });
-      fetchIdentifications();
+      // fetchIdentifications();
+
+      navigate("/score")
 
       // emptyArrays();
 
@@ -199,19 +201,13 @@ const InputForm = () => {
   };
 
   return (
+    <body className="bg-main base-font">
     <div>
-      <nav className="navbar navbar-dark bg-primary">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Shroom Spotter
-          </a>
-        </div>
-      </nav>
 
       <div className="container">
         <form onSubmit={handleFormSubmit}>
 
-          <div className="mt-3">
+          <div className="prompt-sector">
             <h3 className="question-prompt">Stem Height</h3>
             <input
               type="text"
@@ -223,7 +219,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3">
+          <div className="prompt-sector">
             <h3 className="question-prompt">Stem Width</h3>
             <input
               type="text"
@@ -235,7 +231,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3">
+          <div className="prompt-sector">
             <h3 className="question-prompt">Cap Diameter</h3>
             <input
               type="text"
@@ -247,7 +243,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="horizontal-container">
+          <div className="horizontal-container prompt-sector">
             <h3 className="question-prompt">Mushroom bruises or bleeds upon touch</h3>
             <div className="checkbox-wrapper-23" style={{ "--size": "40px" }}>
               <input
@@ -264,8 +260,8 @@ const InputForm = () => {
               </label>
             </div>
           </div>
-
-          <div className="horizontal-container">
+        
+          <div className="horizontal-container prompt-sector">
             <h3 className="question-prompt">Mushroom Has Ring</h3>
             <div className="checkbox-wrapper-23" style={{ "--size": "40px" }}>
               <input
@@ -283,7 +279,7 @@ const InputForm = () => {
             </div>
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={cap_shapes}
               nameKeys={arrayOf(cap_shapes_dict.keys())}
@@ -292,7 +288,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={cap_surfaces}
               nameKeys={arrayOf(cap_surface_dict.keys())}
@@ -301,7 +297,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={cap_colors}
               nameKeys={arrayOf(cap_color_dict.keys())}
@@ -310,7 +306,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={gill_attachments}
               nameKeys={arrayOf(gill_attachment_dict.keys())}
@@ -319,7 +315,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={gill_spacings}
               nameKeys={arrayOf(gill_spacing_dict.keys())}
@@ -328,7 +324,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={gill_colors}
               nameKeys={arrayOf(gill_color_dict.keys())}
@@ -337,7 +333,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={stem_roots}
               nameKeys={arrayOf(stem_root_dict.keys())}
@@ -346,7 +342,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={stem_surfaces}
               nameKeys={arrayOf(stem_surface_dict.keys())}
@@ -355,7 +351,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={stem_colors}
               nameKeys={arrayOf(stem_color_dict.keys())}
@@ -364,7 +360,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={veil_types}
               nameKeys={arrayOf(veil_type_dict.keys())}
@@ -373,7 +369,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={veil_colors}
               nameKeys={arrayOf(veil_color_dict.keys())}
@@ -382,7 +378,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={ring_types}
               nameKeys={arrayOf(ring_type_dict.keys())}
@@ -391,7 +387,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={spore_print_colors}
               nameKeys={arrayOf(spore_print_color_dict.keys())}
@@ -400,7 +396,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={habitats}
               nameKeys={arrayOf(habitat_dict.keys())}
@@ -409,7 +405,7 @@ const InputForm = () => {
             />
           </div>
 
-          <div className="mt-3 mb-5">
+          <div className="prompt-sector">
             <ButtonList
               exportTo={seasons}
               nameKeys={arrayOf(season_dict.keys())}
@@ -417,29 +413,15 @@ const InputForm = () => {
               prompt={"Current Season"}
             />
           </div>
-
-          <button type="submit" className="submit-fancy">
-            Submit
-          </button>
+          <div className="submit-container">
+            <button type="submit" className="submit-fancy">
+              Submit
+            </button>
+          </div>
         </form>
-        <table className="table table-striped table-bordered table-hover">
-          <thead>
-            <tr>
-              <th>Cap shape</th>
-              <th>Cap surface</th>
-            </tr>
-          </thead>
-          <tbody>
-            {identifications.map((identification) => (
-              <tr key={identification.id}>
-                <td>{identification.cap_shape}</td>
-                <td>{identification.cap_surface}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
       </div>
     </div>
+    </body>
   );
 };
 
