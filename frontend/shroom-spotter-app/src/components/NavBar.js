@@ -1,4 +1,4 @@
-const Navbar = () => {
+export default function Navbar(){
   return (
     <div className="App-header base-font">
       <div className="title-sector">
@@ -11,5 +11,3 @@ const Navbar = () => {
     </div>
   );
 }
-
-export default Navbar;
