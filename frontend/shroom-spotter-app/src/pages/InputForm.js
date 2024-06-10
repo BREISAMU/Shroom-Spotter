@@ -178,8 +178,8 @@ const InputForm = () => {
         similarity_score: 0,
         most_similar: "ERROR",
       });
-    } catch (AxiosError) {
-      alert("Please fill out all fields with proper input!");
+    } catch (e) {
+      alert("ERROR: Form may be incomplete, ensure Stem Height, Stem Width, and Cap Diameter are filled out properly.");
     }
   };
 
