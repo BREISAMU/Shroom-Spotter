@@ -1,6 +1,10 @@
 # Shroom-Spotter
-Python based application used to identify unknown mushrooms and predict edibility through machine learning.
+Python based web application used to identify unknown mushrooms.
 
+# Frameworks / Tools
+Node.js, FastAPI, React.js
+
+# Building / Running locally
 FASTAPI:
 cd backend
 uvicorn main:app --reload
