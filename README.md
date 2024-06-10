@@ -1,8 +1,20 @@
 # Shroom-Spotter
-Python based web application used to identify unknown mushrooms.
+Python based web application used to identify unknown mushrooms based on user input of variety of traits. 
 
-# Frameworks / Tools
-Node.js, FastAPI, React.js
+# DISCLAIMERS
+DO NOT CONSUME ANY MUSHROOM IDENTIFIED USING THIS MODEL WITHOUT CONFIRMATION OF THE PREDICTION PROVIDED
+
+Also, this application requires general understanding of mushroom features and an ability to identify those featueres on a wild organism.
+Good resources to assist with the use of this program listed below:
+- [https://www.afdo.org/wp-content/uploads/2020/09/Basics-of-Wild-Harvested-Mushroom-Identification.pdf]
+- [https://www.mushroom.world/mushrooms/idbasic]
+
+#Stack
+- SupaBase
+- SQLAlchemy
+- FastAPI
+- Node.js
+- React.js
 
 # Building / Running locally
 FASTAPI:
