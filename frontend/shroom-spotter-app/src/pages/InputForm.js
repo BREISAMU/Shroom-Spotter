@@ -4,6 +4,7 @@ import api from "../api";
 import { AxiosError } from "axios";
 import arrayOf from "../helpers/arrayOf";
 import { useNavigate } from "react-router-dom";
+import Reset from "../components/ResetFields";
 
 import {
   cap_shapes_dict,
@@ -202,8 +203,7 @@ const InputForm = () => {
 
   return (
     <body className="bg-main base-font">
-    <div>
-
+    `<Reset/>
       <div className="container">
         <form onSubmit={handleFormSubmit}>
 
@@ -420,7 +420,6 @@ const InputForm = () => {
           </div>
         </form>
       </div>
-    </div>
     </body>
   );
 };
