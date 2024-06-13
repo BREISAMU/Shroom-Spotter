@@ -1,5 +1,6 @@
 import api from "../api";
 import { useEffect, useState } from "react";
+import NewMushroom from "../components/NewMush";
 
 export default function ResultsPage() {
   const [identifications, setIdentifications] = useState([]);
@@ -17,6 +18,8 @@ export default function ResultsPage() {
   const display_results = () => {
     try {
       let ret = (
+        <div>
+        <NewMushroom />
         <div className="results-container">
           <h2>This mushroom is predicted to be</h2>
           <h1>{identifications[identifications.length - 1]["most_similar"]}</h1>
@@ -26,6 +29,7 @@ export default function ResultsPage() {
           </h1>
           <br /><br />
           <h3 className="mt-3">NOTE: It is not recommended that any mushroom is consumed without verifying the identification is accurate.</h3>
+        </div>
         </div>
       );
       return ret;
@@ -40,6 +44,5 @@ export default function ResultsPage() {
       <div className="">{display_results()}</div>
       <div className="filler" />
     </div>
-    
   );
 }
