@@ -26,7 +26,7 @@ MarkupSafe
 mdurl
 numpy
 orjson
-packagin
+packaging
 pandas
 pluggy
 postgrest
