@@ -10,9 +10,9 @@ dataclasses==0.6
 deprecation==2.1.0
 dnspython==2.6.1
 email_validator==2.1.1
-fastapi
-fastapi-cli
-gotrue
+fastapi==0.111.0
+fastapi-cli==0.0.4
+gotrue==2.4.2
 greenlet==3.0.3
 h11==0.14.0
 httpcore==1.0.5
@@ -29,7 +29,7 @@ orjson==3.10.3
 packaging==24.0
 pandas==2.2.2
 pluggy==1.5.0
-postgrest
+postgrest==0.16.4
 psycopg2-binary==2.9.9
 py==1.11.0
 pydantic==2.7.1
@@ -49,11 +49,11 @@ six==1.16.0
 sniffio==1.3.1
 SQLAlchemy==2.0.30
 starlette==0.37.2
-storage3
+storage3==0.7.4
 StrEnum==0.4.15
-supabase
+supabase==2.4.5
 supabase-py
-supafunc
+supafunc==0.4.5
 toml==0.10.2
 typer==0.12.3
 typing==3.7.4.3
