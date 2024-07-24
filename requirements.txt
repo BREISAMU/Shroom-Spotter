@@ -62,7 +62,7 @@ typer
 typing
 typing_extensions
 tzdata
-ucimlrep
+ucimlrepo
 ujson
 union
 urllib3
