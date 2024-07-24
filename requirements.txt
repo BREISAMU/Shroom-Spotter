@@ -12,6 +12,7 @@ dnspython==2.6.1
 email_validator==2.1.1
 fastapi==0.111.0
 fastapi-cli==0.0.4
+gotrue
 greenlet==3.0.3
 h11==0.14.0
 httpcore==1.0.5
@@ -50,7 +51,7 @@ SQLAlchemy==2.0.30
 starlette==0.37.2
 storage3==0.7.4
 StrEnum==0.4.15
-supabase==2.4.5
+supabase
 supabase-py
 supafunc==0.4.5
 toml==0.10.2
