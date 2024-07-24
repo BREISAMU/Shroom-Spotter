@@ -51,7 +51,7 @@ SQLAlchemy==2.0.30
 starlette==0.16.0
 storage3
 StrEnum==0.4.15
-supabase==1.0.1
+supabase
 supabase-py
 supafunc
 toml==0.10.2
