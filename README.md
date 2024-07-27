@@ -8,6 +8,12 @@ Good resources to assist with the use of this program listed below:
 - [https://www.mushroom.world/mushrooms/idbasic]
 
 # Stack
+Languages:
+- JavaScript
+- Python
+- HTML / CSS
+
+Tools / Frameworks:
 - SupaBase
 - SQLAlchemy
 - FastAPI
