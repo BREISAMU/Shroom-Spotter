@@ -42,7 +42,6 @@ python-multipart==0.0.9
 pytz==2024.1
 PyYAML==6.0.1
 realtime
-realtime-py
 requests==2.25.1
 rfc3986==1.5.0
 rich==13.7.1
@@ -67,3 +66,4 @@ union==0.1.10
 urllib3==1.26.18
 uvicorn==0.29.0
 watchfiles==0.21.0
+websockets
