@@ -8,10 +8,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from .process import get_similarity_info
 
 app = FastAPI()
-origins = [
-    'http://localhost:3000', 
-    'https://shroom-spotter.vercel.app'
-]
 
 app.add_middleware(
     CORSMiddleware, 
