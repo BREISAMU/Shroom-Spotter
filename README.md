@@ -22,8 +22,7 @@ Tools / Frameworks:
 
 # Building / Running locally
 FASTAPI:
-cd backend
-uvicorn main:app --reload
+uvicorn backend.main:app --reload
 
 REACT APP:
 cd frontend/shroom-spotter-app
