@@ -1,4 +1,4 @@
-from data_collection.analysis.congregation import predict
+from .data_collection.analysis.congregation import predict
 
 tst_shroom = {
             'stem-height': '[3]',
