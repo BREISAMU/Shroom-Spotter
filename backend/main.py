@@ -78,4 +78,8 @@ async def read_identifications(db: db_dependency, skip: int = 0, limit: int = 10
     identifications = db.query(Identification).offset(skip).limit(limit).all()
     return identifications
 
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
 
